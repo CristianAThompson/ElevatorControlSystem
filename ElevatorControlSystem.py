@@ -25,7 +25,7 @@ class Elevator:
             self.current_level = self.levels[0]
             self.levels.pop(0)
         else:
-            return false
+            return False
 
     def report(self):
         return {

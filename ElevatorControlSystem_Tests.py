@@ -19,11 +19,13 @@ class ElevatorTests(unittest.TestCase):
         self.assertEqual(elevator.press_buttons([1]), [1])
         # Tell the elevator to move
         elevator.move()
+        # Get a report from the elevator of where it is now
         self.assertEqual(elevator.report(), {
             'current_level': 1,
             'maximum_level': 10,
             'levels': []
         })
+        self.assertFalse(elevator.move())
 
 if __name__ == '__main__':
     unittest.main()
