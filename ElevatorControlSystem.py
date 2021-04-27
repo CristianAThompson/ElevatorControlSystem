@@ -28,4 +28,8 @@ class Elevator:
             return false
 
     def report(self):
-        return { 'current_level': self.current_level, 'maximum_level': self.maximum_level, 'levels': self.levels }
+        return {
+            'current_level': self.current_level,
+            'maximum_level': self.maximum_level,
+            'levels': self.levels
+        }
