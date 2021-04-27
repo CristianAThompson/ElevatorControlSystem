@@ -17,13 +17,16 @@ class Elevator:
         if not isinstance(buttons_pressed, list):
             buttons_pressed = [buttons_pressed]
         self.levels = buttons_pressed + self.levels
+        self.levels.sort()
         return self.levels
     
     def move(self):
         # If we aren't on the level declared in our stored levels let's move to that next level
-        if len(self.levels) > 0 and self.current_level != self.levels[0]:
-            self.current_level = self.levels[0]
+        if len(self.levels) > 0:
+            if self.current_level != self.levels[0]:
+                self.current_level = self.levels[0]
             self.levels.pop(0)
+            return True
         else:
             return False
 
