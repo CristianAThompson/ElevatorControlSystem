@@ -14,6 +14,12 @@ class ElevatorTests(unittest.TestCase):
         self.assertEqual(elevator.press_buttons([6]), [1, 6])
         self.assertEqual(elevator.press_buttons([4]), [1, 4, 6])
 
+    def test_elevator_does_nothing_if_not_integer_pressed(self):
+        elevator = ElevatorControlSystem.Elevator({"current_level": 0})
+        self.assertFalse(elevator.press_buttons('a'))
+        self.assertEqual(elevator.press_buttons([6]), [6])
+        self.assertEqual(elevator.press_buttons([4]), [4, 6])
+
     def test_elevator_moves(self):
         elevator = ElevatorControlSystem.Elevator({"current_level": 0})
         self.assertEqual(elevator.press_buttons([1]), [1])

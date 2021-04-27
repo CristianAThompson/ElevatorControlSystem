@@ -16,8 +16,10 @@ class Elevator:
     def press_buttons(self, buttons_pressed):
         if not isinstance(buttons_pressed, list):
             buttons_pressed = [buttons_pressed]
-        self.levels = buttons_pressed + self.levels
-        self.levels.sort()
+        # Validate all our values in buttons_pressed are integers
+        if all(isinstance(press, int) for press in buttons_pressed):
+            self.levels = buttons_pressed + self.levels
+            self.levels.sort()
         return self.levels
     
     def move(self):
